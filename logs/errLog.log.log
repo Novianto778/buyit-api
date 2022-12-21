@@ -1,0 +1,30 @@
+2022-12-19 20:39:26	be282968-35f7-4692-9222-52132f8fe97f	TypeError: User.find is not a function	GET	/users	undefined
+2022-12-19 21:57:00	52a8d9f1-88bd-425a-a7b1-c3212ae316cf	Error: data must be a string or Buffer and salt must either be a salt string or a number of rounds	POST	/users	undefined
+2022-12-19 21:58:18	3f51e579-84fe-4c5c-8bf3-d53e21322a2e	Error: data must be a string or Buffer and salt must either be a salt string or a number of rounds	POST	/users	undefined
+2022-12-19 21:58:35	f7bb1826-59a5-4497-bb55-ddfb7152d4e8	TypeError: Cannot read properties of undefined (reading 'length')	POST	/users	undefined
+2022-12-19 21:58:40	88000dc1-60c9-434d-98b3-096ec3bc0cf0	ValidationError: User validation failed: password: Path `password` is required.	POST	/users	undefined
+2022-12-20 17:53:26	c1295357-e02a-471d-8569-51689e287b9b	SyntaxError: Unexpected token } in JSON at position 67	GET	/users	undefined
+2022-12-20 17:53:34	2e81101d-a1ed-41d0-afcd-8c2ecd5c4241	SyntaxError: Unexpected token } in JSON at position 67	PATCH	/users	undefined
+2022-12-20 17:54:05	28b40c43-2ea5-4006-b9b4-38550a47682a	MongoServerError: $regex has to be a string	PATCH	/users	undefined
+2022-12-20 17:55:19	b26f4fae-1085-4a7f-a0d3-f8d371efbfc8	MongoServerError: $regex has to be a string	PATCH	/users	undefined
+2022-12-20 20:10:23	5fa8ff6a-163e-4c3b-8a8c-59dae19ca22c	Error: Not allowed by CORS	OPTIONS	/auth/login	http://127.0.0.1:5173
+2022-12-20 20:10:42	192bbd0d-fb66-4724-b65e-b5bb194540c7	Error: Not allowed by CORS	OPTIONS	/auth/login	http://127.0.0.1:5173
+2022-12-20 20:10:48	da72839a-a0b9-4cf1-a0a0-cb82d62bbb15	Error: Not allowed by CORS	OPTIONS	/auth/login	http://127.0.0.1:5173
+2022-12-20 20:11:05	b96d6e54-614c-44c5-a60f-5ff7577c76ff	Error: Not allowed by CORS	OPTIONS	/auth/login	http://127.0.0.1:5173
+2022-12-20 20:11:11	4a172b63-70c5-41fb-a4c0-85fc72536c63	Error: Not allowed by CORS	OPTIONS	/auth/login	http://127.0.0.1:5173
+2022-12-20 20:12:35	692e6a97-9440-47c3-838d-e874034d456d	Error: Not allowed by CORS	OPTIONS	/auth/login	http://127.0.0.1:5173
+2022-12-20 20:12:35	59f7bd20-4007-4ddf-bea2-95a9dc7f28e8	Error: Not allowed by CORS	OPTIONS	/auth/login	http://127.0.0.1:5173
+2022-12-20 20:13:48	c430a091-39dc-4061-ab13-863ae5462ca6	Error: Not allowed by CORS	OPTIONS	/auth/login	http://127.0.0.1:5173
+2022-12-20 20:14:55	c5befa5f-ce2d-46a9-8420-265bb99fcc64	Error: Not allowed by CORS	OPTIONS	/auth/login	http://127.0.0.1:5173
+2022-12-20 20:16:48	35ac9b7f-35c5-4e36-85c9-813924af4b52	Error: Not allowed by CORS	OPTIONS	/auth/login	http://127.0.0.1:5173
+2022-12-20 20:17:44	d40103ab-c93c-4f28-a416-7eefb069b2f7	Error: Not allowed by CORS	OPTIONS	/auth/login	http://127.0.0.1:5173
+2022-12-20 20:18:26	759c5509-18af-4474-b055-93bbfb56b50d	Error: Not allowed by CORS	OPTIONS	/auth/login	http://127.0.0.1:5173
+2022-12-20 20:32:21	8464dda8-1fc0-4cfd-8cf7-ed65d1957ead	Error: Not allowed by CORS	OPTIONS	/auth	http://127.0.0.1:5173
+2022-12-20 20:35:01	c86bd21d-3ef3-4fc0-9d34-d10a702c45fb	Error: Not allowed by CORS	OPTIONS	/auth	http://127.0.0.1:5173
+2022-12-20 20:35:40	6136494b-7903-4d35-a08e-5be87cebd8d6	Error: Not allowed by CORS	OPTIONS	/auth	http://127.0.0.1:5173
+2022-12-20 20:36:04	5fe1ca93-08cb-46a9-97e7-893805e4905f	Error: Not allowed by CORS	OPTIONS	/auth	http://127.0.0.1:5173
+2022-12-21 08:36:15	1f36ffb3-cc8d-4d72-a7a8-d3251c9a06db	TypeError: option sameSite is invalid	POST	/auth	http://127.0.0.1:5173
+2022-12-21 08:36:37	b82aaaee-f3c8-4ccf-9c8a-3e232341b366	TypeError: option sameSite is invalid	POST	/auth	http://127.0.0.1:5173
+2022-12-21 11:03:13	7eb61587-58fd-45de-acaa-b03bb16c7f36	TypeError: Cannot read properties of undefined (reading 'username')	GET	/users	http://127.0.0.1:5173
+2022-12-21 11:03:39	06ad610e-69a3-4ad6-abaf-8216321c8339	TypeError: Cannot read properties of undefined (reading 'username')	GET	/users	http://127.0.0.1:5173
+2022-12-21 11:04:39	e6aa211b-2669-435c-826d-e49bd7f7ae66	TypeError: Cannot read properties of undefined (reading 'username')	GET	/users	http://127.0.0.1:5173
