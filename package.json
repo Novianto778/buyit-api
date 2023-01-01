@@ -7,8 +7,10 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
+    "express-fileupload": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.8.0",
+    "react-scripts": "^5.0.1",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
@@ -25,5 +27,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Novianto778/buyit-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Novianto778/buyit-api/issues"
+  },
+  "homepage": "https://github.com/Novianto778/buyit-api#readme",
   "description": ""
 }

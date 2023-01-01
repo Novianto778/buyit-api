@@ -12,6 +12,7 @@ const connectDB = require('./config/dbConn');
 const mongoose = require('mongoose');
 const credentials = require('./middleware/credentials');
 const verifyJWT = require('./middleware/verifyJWT');
+const fileUpload = require('express-fileupload');
 const PORT = process.env.PORT || 3500;
 mongoose.set('strictQuery', true);
 
@@ -23,12 +24,16 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(fileUpload({ createParentPath: true }));
 
 app.use('/', express.static(path.join(__dirname, 'public'))); // here to find static files
+app.use('/files', express.static(path.join(__dirname, 'files'))); // here to find static files
 app.use('/', require('./routes/root')); // here to find routes
 app.use('/auth', require('./routes/authRoutes'));
 
 app.use(verifyJWT);
+app.use('/products', require('./routes/productRoutes'));
+app.use('/orders', require('./routes/orderRoutes'));
 app.use('/users', require('./routes/userRoutes'));
 
 app.all('*', (req, res) => {

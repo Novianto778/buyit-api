@@ -28,3 +28,72 @@
 2022-12-21 11:03:13	7eb61587-58fd-45de-acaa-b03bb16c7f36	TypeError: Cannot read properties of undefined (reading 'username')	GET	/users	http://127.0.0.1:5173
 2022-12-21 11:03:39	06ad610e-69a3-4ad6-abaf-8216321c8339	TypeError: Cannot read properties of undefined (reading 'username')	GET	/users	http://127.0.0.1:5173
 2022-12-21 11:04:39	e6aa211b-2669-435c-826d-e49bd7f7ae66	TypeError: Cannot read properties of undefined (reading 'username')	GET	/users	http://127.0.0.1:5173
+2022-12-21 22:11:28	c48290b2-9049-4785-bfdc-59cbfc9d86cf	Error: Not allowed by CORS	OPTIONS	/auth	http://localhost:3000
+2022-12-22 13:20:01	36e60882-6b8c-4fd3-81bc-a4af55c99543	ReferenceError: user is not defined	POST	/auth	http://localhost:3000
+2022-12-22 13:22:02	aeed1656-32f6-4684-8146-86920287f104	ReferenceError: cookies is not defined	POST	/auth	http://localhost:3000
+2022-12-22 13:22:21	d222a885-02d2-4180-b078-639d04667254	TypeError: newRefreshTokenArray is not iterable	POST	/auth	http://localhost:3000
+2022-12-22 13:24:05	f2a30454-4102-4680-9b8e-22b97fafc71f	ReferenceError: foundUser is not defined	POST	/auth	http://localhost:3000
+2022-12-22 13:24:21	91580d7c-ecea-4ffc-8bb5-317a94440af4	ReferenceError: user is not defined	POST	/auth	http://localhost:3000
+2022-12-22 13:24:47	9c9b42ae-35a8-43b8-938e-e1afecc6610c	ReferenceError: roles is not defined	POST	/auth	http://localhost:3000
+2022-12-27 13:15:58	596fc750-af52-4901-8524-a7af6f81c4c3	ReferenceError: product is not defined	POST	/products	http://localhost:3000
+2022-12-27 13:25:25	02b45b0f-7054-45de-894a-c8d5af3faf10	TypeError: Cannot read properties of undefined (reading 'file')	POST	/products	http://localhost:3000
+2022-12-27 13:25:52	36da11ca-0f27-4a45-9a0d-1ac10e4227bd	Error: Cannot set headers after they are sent to the client	POST	/products	http://localhost:3000
+2022-12-27 13:26:36	9f43d989-9234-4ff5-befc-28e2a7892440	Error: Cannot set headers after they are sent to the client	POST	/products	http://localhost:3000
+2022-12-27 13:34:24	a12ed9c3-40e4-45a9-ac30-b31f4c400806	TypeError: Cannot read properties of undefined (reading 'mv')	POST	/products	http://localhost:3000
+2022-12-27 13:37:06	1331f126-354c-4914-8383-ee92bc9ca4bd	TypeError: Cannot read properties of undefined (reading 'name')	POST	/products	http://localhost:3000
+2022-12-27 13:38:05	ee4d1c56-3858-46c1-885b-64080da41641	TypeError: Cannot read properties of undefined (reading 'picture')	POST	/products	http://localhost:3000
+2022-12-27 13:38:14	bad2bc7e-1229-4e69-a8d4-716e48bf2398	TypeError: The "path" argument must be of type string. Received undefined	POST	/products	http://localhost:3000
+2022-12-27 13:38:45	bd3eaa09-c6ab-4905-9bb6-6af0788ff98f	TypeError: The "path" argument must be of type string. Received undefined	POST	/products	http://localhost:3000
+2022-12-27 13:39:53	3bed5934-4c54-482c-9b64-ddb694013e49	TypeError: The "path" argument must be of type string. Received undefined	POST	/products	http://localhost:3000
+2022-12-27 13:40:24	d7ce7834-844e-4048-ab1a-43547012b510	TypeError: The "path" argument must be of type string. Received undefined	POST	/products	http://localhost:3000
+2022-12-27 13:43:05	69219ff1-dfce-45fc-bdd7-4f20c7e01a49	TypeError: The "path" argument must be of type string. Received undefined	POST	/products	http://localhost:3000
+2022-12-27 13:43:20	48b30e9e-7743-40f4-8305-6ce95569aef0	TypeError: The "path" argument must be of type string. Received undefined	POST	/products	http://localhost:3000
+2022-12-27 13:43:32	af3315e0-de84-429c-bd65-c9adeb84f97f	TypeError: The "path" argument must be of type string. Received undefined	POST	/products	http://localhost:3000
+2022-12-27 13:43:43	23530212-df24-4cf0-ac12-a7a52690a0c3	TypeError: The "path" argument must be of type string. Received undefined	POST	/products	http://localhost:3000
+2022-12-27 19:23:20	802c0e7c-953a-45d7-87e3-808161a1e912	TypeError: Cannot read properties of undefined (reading 'path')	POST	/products	http://localhost:3000
+2022-12-27 19:24:30	2853cbc8-ffa8-4963-af4f-9a512c833de5	ValidationError: Product validation failed: price: Cast to Number failed for value "test" (type string) at path "price", image: Path `image` is required.	POST	/products	http://localhost:3000
+2022-12-27 19:24:52	3beb2452-574f-4229-bece-ea4245ef8eed	ValidationError: Product validation failed: price: Cast to Number failed for value "test" (type string) at path "price", image: Path `image` is required.	POST	/products	http://localhost:3000
+2022-12-27 19:25:20	1d1ef37c-ebae-4779-9e13-1f6d8feed452	ValidationError: Product validation failed: price: Cast to Number failed for value "test" (type string) at path "price", image: Path `image` is required.	POST	/products	http://localhost:3000
+2022-12-27 19:25:32	719a56c5-2340-4045-9364-723bf165ddb7	ValidationError: Product validation failed: image: Path `image` is required.	POST	/products	http://localhost:3000
+2022-12-27 19:26:00	bf2b4861-62d5-4663-9877-6033038bab92	ValidationError: Product validation failed: image: Path `image` is required.	POST	/products	http://localhost:3000
+2022-12-27 19:37:45	a0bc635a-9e09-460c-b29a-90572e47450a	ValidationError: Product validation failed: user: Path `user` is required.	POST	/products	http://localhost:3000
+2022-12-27 20:43:46	a68c89da-ce1f-407f-b69d-1f4142d1582d	ValidationError: Product validation failed: user: Path `user` is required.	POST	/products	http://localhost:3000
+2022-12-27 20:44:03	d1d9090e-5101-4740-a500-3a10d9695af9	ValidationError: Product validation failed: user: Path `user` is required.	POST	/products	http://localhost:3000
+2022-12-27 20:44:42	65c54317-3c1f-4e1e-baad-1a063c26cbbf	ValidationError: Product validation failed: user: Path `user` is required.	POST	/products	http://localhost:3000
+2022-12-27 20:44:52	d4de2343-3b9e-478c-99c4-13d820bdf8e6	ValidationError: Product validation failed: user: Path `user` is required.	POST	/products	http://localhost:3000
+2022-12-27 20:44:52	a60b2a39-4faa-4ad9-93ed-a6d3449e2149	ValidationError: Product validation failed: user: Path `user` is required.	POST	/products	http://localhost:3000
+2022-12-27 21:24:55	6b226620-a1a0-41f9-b655-ad11f03907e9	ValidationError: Product validation failed: user: Path `user` is required.	POST	/products	http://localhost:3000
+2022-12-27 21:25:27	09713729-9484-4160-8e63-a50459f91289	ValidationError: Product validation failed: user: Path `user` is required., description: Path `description` is required.	POST	/products	http://localhost:3000
+2022-12-28 13:36:06	0aa7b029-5c0e-46c0-ac91-8e81054e7ebc	ValidationError: Product validation failed: user: Path `user` is required., description: Path `description` is required.	POST	/products	http://localhost:3000
+2022-12-28 15:15:27	8d569c8a-f484-4b26-be6d-4fcac23a4d62	ValidationError: Product validation failed: description: Path `description` is required.	POST	/products	http://localhost:3000
+2022-12-28 22:38:22	3dda5abe-7121-4b80-80fe-3ad48ca0eee6	StrictPopulateError: Cannot populate path `products.product` because it is not in your schema. Set the `strictPopulate` option to false to override.	GET	/orders	undefined
+2022-12-28 22:41:09	3cb1b046-d6ca-49e9-86ca-540699f0dd0f	SyntaxError: Unexpected token } in JSON at position 156	GET	/products	undefined
+2022-12-30 12:49:55	df281d32-2b55-4878-83d3-8379957350e7	TypeError: Cannot read properties of null (reading 'roles')	DELETE	/users	http://localhost:3000
+2022-12-30 12:50:23	787417e7-dc1d-41c2-84e0-79406a440ed9	TypeError: Cannot read properties of null (reading 'roles')	DELETE	/users	http://localhost:3000
+2022-12-30 12:50:55	77edc240-5916-4a23-93cc-ea93b4b37fbf	TypeError: Cannot read properties of null (reading 'includes')	DELETE	/users	http://localhost:3000
+2022-12-30 12:51:09	39bcc621-dabf-4281-9190-e947c3b9e806	TypeError: Cannot read properties of null (reading 'includes')	DELETE	/users	http://localhost:3000
+2022-12-30 12:52:33	d76a6312-9ba5-4af6-9f22-272fa7a274ef	TypeError: allowedRoles is not iterable	DELETE	/users	http://localhost:3000
+2022-12-30 12:53:18	c124a23b-5142-445c-aaa2-acc450e2b0b7	TypeError: allowedRoles is not iterable	DELETE	/users	http://localhost:3000
+2022-12-30 12:53:52	6f060480-aace-476c-88ac-cc0c54b85ce2	TypeError: allowedRoles is not iterable	DELETE	/users	http://localhost:3000
+2022-12-30 13:37:30	a37eaf26-4e84-4d01-8c7a-2434dc20f7fc	CastError: Cast to ObjectId failed for value "63a12b512684990539a0d4812" (type string) at path "_id" for model "User"	GET	/users?id=63a12b512684990539a0d4812	http://localhost:3000
+2022-12-30 13:37:34	f145aeae-82af-466c-b349-df11d28e4c7b	CastError: Cast to ObjectId failed for value "63a12b512684990539a0d48124" (type string) at path "_id" for model "User"	GET	/users?id=63a12b512684990539a0d48124	http://localhost:3000
+2022-12-30 13:39:03	379701fd-95d8-4bfa-b62b-83c5fb112631	CastError: Cast to ObjectId failed for value "63a12b512684990539a0d48124" (type string) at path "_id" for model "User"	GET	/users?id=63a12b512684990539a0d48124	http://localhost:3000
+2022-12-30 13:39:42	fc384b86-d399-4427-adc0-b0f197e20c59	CastError: Cast to ObjectId failed for value "63a12b512684990539a0d48124" (type string) at path "_id" for model "User"	GET	/users?id=63a12b512684990539a0d48124	http://localhost:3000
+2022-12-30 13:41:06	e9ea7fce-f828-4c37-8bc9-60182b4a68da	CastError: Cast to ObjectId failed for value "63ae7b48bc3c8218415818aa1" (type string) at path "_id" for model "User"	GET	/users?id=63ae7b48bc3c8218415818aa1	http://localhost:3000
+2022-12-30 13:41:43	ea418727-f60f-4728-a3cf-41cbc05dc3b6	CastError: Cast to ObjectId failed for value "63a12b512684990539a0d4812" (type string) at path "_id" for model "User"	GET	/users?id=63a12b512684990539a0d4812	http://localhost:3000
+2022-12-30 13:42:23	aa61758a-0354-4076-a445-aa81f16c11de	CastError: Cast to ObjectId failed for value "63a12b512684990539a0d4812" (type string) at path "_id" for model "User"	GET	/users?id=63a12b512684990539a0d4812	http://localhost:3000
+2022-12-30 18:59:54	72bc47e4-5e66-408c-81cd-87286d59065b	ReferenceError: fs is not defined	DELETE	/products?id=63ae8b1aba2df96d810883d3	undefined
+2022-12-30 19:10:27	df7b7673-f074-4452-b5ea-9f6cee034e3f	TypeError: Cannot read properties of null (reading 'picture')	PATCH	/products	http://localhost:3000
+2022-12-30 20:09:57	acd82525-d59d-4bdd-97b6-b98af84cd5b1	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Product"	GET	/products?id=undefined	http://localhost:3000
+2022-12-30 20:10:32	369f8377-6972-427f-8818-f3a124e5c010	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Product"	GET	/products?id=undefined	http://localhost:3000
+2022-12-30 20:11:00	fa148911-7dff-4c6b-bc0e-a365b8f8edfb	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Product"	GET	/products?id=undefined	http://localhost:3000
+2022-12-30 20:11:08	7aa7f059-4ae5-4f71-b2ea-4372e9659c7d	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Product"	GET	/products?id=undefined	http://localhost:3000
+2022-12-30 20:11:41	ff8f83ff-2845-43a4-9e67-db39b53d3d05	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Product"	GET	/products?id=undefined	http://localhost:3000
+2022-12-30 21:09:27	305cd412-1d7d-4be8-8d76-c0a69c126786	ReferenceError: total is not defined	GET	/orders	http://localhost:3000
+2022-12-30 21:21:49	1c5e34ce-e28f-4485-887c-ab96652b572a	StrictPopulateError: Cannot populate path `User` because it is not in your schema. Set the `strictPopulate` option to false to override.	GET	/orders	http://localhost:3000
+2022-12-31 12:18:51	695e3471-2c32-429c-8117-0dab1fadec77	TypeError: Cannot read properties of undefined (reading '_id')	DELETE	/users	http://localhost:3000
+2022-12-31 12:20:44	d4483758-17a9-4e1e-bf21-1b4e90928b51	ReferenceError: jwt is not defined	DELETE	/users	http://localhost:3000
+2022-12-31 12:21:42	2e76208b-8282-4cc4-8760-f90b71d2330b	TypeError: Cannot read properties of undefined (reading 'toString')	DELETE	/users	http://localhost:3000
+2022-12-31 12:21:52	e948f896-de46-413b-817d-470bdc266a6f	TypeError: Cannot read properties of undefined (reading 'toString')	DELETE	/users	http://localhost:3000
+2022-12-31 12:22:32	c7b3e425-1ff1-485e-98a6-19a23f56f8e8	TypeError: Cannot read properties of undefined (reading 'toString')	DELETE	/users	http://localhost:3000
+2022-12-31 12:22:58	94420156-cc68-4911-93da-f517ba4cf1b8	TypeError: Cannot read properties of undefined (reading 'toString')	DELETE	/users	http://localhost:3000

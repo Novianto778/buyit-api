@@ -7,6 +7,14 @@ const jwt = require('jsonwebtoken');
 // @access Public
 
 exports.login = async (req, res, next) => {
+    const cookies = req.cookies;
+    if (cookies.jwt) {
+        res.clearCookie('jwt', {
+            httpOnly: true,
+            sameSite: 'None',
+            secure: true,
+        });
+    }
     const { username, password } = req.body;
 
     if (!username || !password) {
@@ -15,21 +23,21 @@ exports.login = async (req, res, next) => {
             .json({ message: 'Please provide a username and password' });
     }
 
-    const user = await User.findOne({
+    const foundUser = await User.findOne({
         username: { $regex: username, $options: 'i' },
     }).exec();
 
-    if (!user) {
+    if (!foundUser) {
         return res
             .status(401)
             .json({ message: 'Username atau password salah' });
     }
 
-    if (!user.active) {
+    if (!foundUser.active) {
         return res.status(401).json({ message: 'Akun anda tidak aktif' });
     }
 
-    const passwordMatch = await bcrypt.compare(password, user.password);
+    const passwordMatch = await bcrypt.compare(password, foundUser.password);
 
     if (!passwordMatch) {
         return res.status(401).json({ message: 'Unauthorized' });
@@ -37,34 +45,27 @@ exports.login = async (req, res, next) => {
 
     const accessToken = jwt.sign(
         {
-            id: user._id.toString(),
-            username: user.username,
-            roles: user.roles,
+            UserInfo: {
+                userId: foundUser._id.toString(),
+                username: foundUser.username,
+                roles: foundUser.roles,
+            },
         },
         process.env.ACCESS_TOKEN_SECRET,
-        {
-            expiresIn: '10s',
-        }
+        { expiresIn: '10m' }
     );
-
-    const refreshToken = jwt.sign(
-        {
-            id: user._id.toString(),
-            username: user.username,
-            roles: user.roles,
-        },
+    const newRefreshToken = jwt.sign(
+        { username: foundUser.username },
         process.env.REFRESH_TOKEN_SECRET,
-        {
-            expiresIn: '1d',
-        }
+        { expiresIn: '1d' }
     );
 
     //Create secure cookie with refresh token
-    res.cookie('jwt', refreshToken, {
-        httpOnly: true, //accessible only by web server
-        // secure: true, //https
-        sameSite: 'None', //cross-site cookie
-        maxAge: 1 * 24 * 60 * 60 * 1000, //cookie expiry: set to match rT
+    res.cookie('jwt', newRefreshToken, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'None',
+        maxAge: 24 * 60 * 60 * 1000,
     });
     // res.cookie('jwt', refreshToken, {
     //     maxAge: 1 * 24 * 60 * 60 * 1000
@@ -72,7 +73,8 @@ exports.login = async (req, res, next) => {
 
     res.status(200).json({
         accessToken,
-        roles: user.roles,
+        username: foundUser.username,
+        roles: foundUser.roles,
         message: 'Login berhasil',
     });
 };
@@ -82,7 +84,6 @@ exports.login = async (req, res, next) => {
 // @access Public - because access token has expired
 exports.refresh = (req, res) => {
     const cookies = req.cookies;
-    console.log('cookies ', cookies);
 
     if (!cookies?.jwt) return res.status(401).json({ message: 'Unauthorized' });
 
@@ -103,15 +104,33 @@ exports.refresh = (req, res) => {
 
             const accessToken = jwt.sign(
                 {
-                    id: foundUser._id.toString(),
-                    username: foundUser.username,
-                    roles: foundUser.roles,
+                    UserInfo: {
+                        userId: foundUser._id.toString(),
+                        username: foundUser.username,
+                        roles: foundUser.roles,
+                    },
                 },
                 process.env.ACCESS_TOKEN_SECRET,
-                { expiresIn: '10s' }
+                { expiresIn: '10m' }
             );
 
-            res.json({ accessToken });
+            // const newRefreshToken = jwt.sign(
+            //     { username: foundUser.username },
+            //     process.env.REFRESH_TOKEN_SECRET,
+            //     { expiresIn: '1d' }
+            // );
+
+            // res.cookie('jwt', newRefreshToken, {
+            //     httpOnly: true,
+            //     secure: true,
+            //     sameSite: 'None',
+            //     maxAge: 24 * 60 * 60 * 1000,
+            // });
+            res.json({
+                username: foundUser.username,
+                roles: foundUser.roles,
+                accessToken,
+            });
         }
     );
 };
@@ -125,8 +144,8 @@ exports.logout = (req, res) => {
     if (!cookies?.jwt) return res.sendStatus(204); //No content
     res.clearCookie('jwt', {
         httpOnly: true,
+        secure: true,
         sameSite: 'None',
-        // secure: true
     });
     res.json({ message: 'Cookie cleared' });
 };

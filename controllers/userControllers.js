@@ -1,10 +1,18 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 
-// @desc    get all users
+// @desc    get all users or single user by id
 // @route   GET /users
 // @access  Private
 exports.getUsers = async (req, res, next) => {
+    const { id } = req.query;
+    if (id) {
+        const user = await User.findById(id, '-password').lean().exec();
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        return res.status(200).json(user);
+    }
     const users = await User.find({}, '-password').lean().exec();
     if (!users.length) {
         return res.status(404).json({ message: 'No users found' });
@@ -17,7 +25,7 @@ exports.getUsers = async (req, res, next) => {
 // @access  Private
 
 exports.registerUser = async (req, res, next) => {
-    const { username, password, roles } = req.body;
+    const { username, password, roles, active } = req.body;
     if (!username || !password) {
         return res
             .status(400)
@@ -38,8 +46,8 @@ exports.registerUser = async (req, res, next) => {
 
     const newUser =
         !Array.isArray(roles) && !roles.length
-            ? { username, password: hashedPassword }
-            : { username, password: hashedPassword, roles };
+            ? { username, password: hashedPassword, active }
+            : { username, password: hashedPassword, roles, active };
 
     const user = await User.create(newUser);
     res.status(201).json({ message: `User ${user.username} created` });
@@ -93,8 +101,18 @@ exports.updateUser = async (req, res, next) => {
 
 exports.deleteUser = async (req, res, next) => {
     const { id } = req.body;
+
     if (!id) {
         return res.status(400).json({ message: 'Please provide a user id' });
+    }
+
+    // check if the id same as the logged in user using cookies jwt
+    console.log(req.username);
+
+    if (req.userId.toString() === id) {
+        return res
+            .status(400)
+            .json({ message: 'You cannot delete your own account' });
     }
 
     const user = await User.findById(id).exec();
@@ -103,6 +121,10 @@ exports.deleteUser = async (req, res, next) => {
         return res.status(404).json({ message: 'User not found' });
     }
 
-    const deletedUser = await user.remove();
-    res.status(200).json({ message: `User ${deletedUser.username} deleted` });
+    // change user status to inactive
+    user.active = false;
+    const deletedUser = await user.save();
+    res.status(200).json({
+        message: `User ${deletedUser.username} set to inactive`,
+    });
 };
