@@ -97,3 +97,7 @@
 2022-12-31 12:21:52	e948f896-de46-413b-817d-470bdc266a6f	TypeError: Cannot read properties of undefined (reading 'toString')	DELETE	/users	http://localhost:3000
 2022-12-31 12:22:32	c7b3e425-1ff1-485e-98a6-19a23f56f8e8	TypeError: Cannot read properties of undefined (reading 'toString')	DELETE	/users	http://localhost:3000
 2022-12-31 12:22:58	94420156-cc68-4911-93da-f517ba4cf1b8	TypeError: Cannot read properties of undefined (reading 'toString')	DELETE	/users	http://localhost:3000
+2023-01-03 10:22:23	24a79100-bc13-4f54-a974-6d4849dbc6d5	TypeError: Cannot read properties of undefined (reading 'filter')	POST	/auth/logout	http://localhost:3000
+2023-01-03 10:22:23	ae8b1b47-86c1-406f-8a43-6d2e96ed1fcf	TypeError: Cannot read properties of undefined (reading 'filter')	GET	/auth/refresh	http://localhost:3000
+2023-01-03 10:25:50	dc73a718-b6c4-4082-86bf-f5c9b0176a57	TypeError: Cannot read properties of undefined (reading 'filter')	POST	/auth/logout	http://localhost:3000
+2023-01-03 10:25:51	f25d323b-67ac-4975-a2e5-fe5359bdbc28	TypeError: Cannot read properties of undefined (reading 'filter')	GET	/auth/refresh	http://localhost:3000

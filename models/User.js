@@ -17,6 +17,9 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: true,
     },
+    refreshToken: {
+        type: [String],
+    }
 });
 
 const User = mongoose.model('User', userSchema);
