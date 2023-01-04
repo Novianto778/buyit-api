@@ -53,9 +53,9 @@ exports.login = async (req, res, next) => {
         { expiresIn: '1d' }
     );
 
-    const newRefreshTokenArray = !cookies?.jwt
+    let newRefreshTokenArray = !cookies?.jwt
         ? foundUser.refreshToken
-        : foundUser.refreshToken.filter((rt) => rt !== cookies.jwt); // means delete old refresh token
+        : foundUser.refreshToken?.filter((rt) => rt !== cookies.jwt); // means delete old refresh token
 
     if (cookies?.jwt) {
         /* 
@@ -93,9 +93,6 @@ exports.login = async (req, res, next) => {
         sameSite: 'None',
         maxAge: 24 * 60 * 60 * 1000,
     });
-    // res.cookie('jwt', refreshToken, {
-    //     maxAge: 1 * 24 * 60 * 60 * 1000
-    // })
 
     res.status(200).json({
         accessToken,
@@ -108,10 +105,11 @@ exports.login = async (req, res, next) => {
 // @desc Refresh
 // @route GET /auth/refresh
 // @access Public - because access token has expired
-exports.refresh = (req, res) => {
-    const cookies = req.cookies;
+exports.refresh = async (req, res) => {
+    let cookies = req.cookies;
 
-    if (!cookies?.jwt) return res.status(401).json({ message: 'Unauthorized' });
+    if (!cookies?.jwt)
+        return res.status(401).json({ message: 'Unauthorized (no jwt)' });
 
     const refreshToken = cookies.jwt;
     res.clearCookie('jwt', {
@@ -120,7 +118,7 @@ exports.refresh = (req, res) => {
         sameSite: 'None',
     });
 
-    const foundUser = User.findOne({
+    const foundUser = await User.findOne({
         refreshToken,
     }).exec();
 
@@ -130,8 +128,9 @@ exports.refresh = (req, res) => {
             refreshToken,
             process.env.REFRESH_TOKEN_SECRET,
             async (err, decoded) => {
-                if (err) return res.status(403).json({ message: 'Forbidden' });
-
+                if (err)
+                    return res.status(403).json({ message: 'Forbidden 1' });
+                console.log('attempted refresh token reuse!');
                 const hackedUser = await User.findOne({
                     username: decoded.username,
                 }).exec();
@@ -139,9 +138,10 @@ exports.refresh = (req, res) => {
                 await hackedUser.save();
             }
         );
+        return res.status(403).json({ message: 'Forbidden 2' });
     }
 
-    const newRefreshTokenArray = foundUser.refreshToken.filter(
+    const newRefreshTokenArray = foundUser?.refreshToken?.filter(
         (rt) => rt !== refreshToken
     ); // means delete old refresh token
 
@@ -152,19 +152,13 @@ exports.refresh = (req, res) => {
         async (err, decoded) => {
             if (err) {
                 console.log('expired refresh token');
+
                 foundUser.refreshToken = [...newRefreshTokenArray];
                 await foundUser.save();
             }
 
-            if (err || foundUser.username !== decoded.username)
+            if (err || foundUser?.username !== decoded?.username)
                 return res.status(403).json({ message: 'Forbidden' });
-
-            // const foundUser = await User.findOne({
-            //     username: decoded.username,
-            // }).exec();
-
-            // if (!foundUser)
-            //     return res.status(401).json({ message: 'Unauthorized' });
 
             // Refresh token was still valid
             const accessToken = jwt.sign(
